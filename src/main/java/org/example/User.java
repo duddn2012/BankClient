@@ -11,16 +11,13 @@ import java.io.Serializable;
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    String accountType;
-    Long accountNumber;
-    int age;
+    String userId;
     String name;
-
-    public User(String accountType, Long accountNumber, int age, String name){
-        this.accountType = accountType;
-        this.accountNumber = accountNumber;
-        this.age = age;
+    String email;
+    public User(String userId, String name, String email) {
+        this.userId = userId;
         this.name = name;
+        this.email = email;
     }
 
 }
