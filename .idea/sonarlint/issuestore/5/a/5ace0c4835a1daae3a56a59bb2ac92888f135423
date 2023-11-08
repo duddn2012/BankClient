@@ -1,0 +1,14 @@
+
+D
+java:S2189#""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ8ÕŒæ¤º1
+V
+java:S4719"9Replace charset name argument with StandardCharsets.UTF_8(Ò²Ñ´8€çÁ º1
+G	java:S106"+Replace this use of System.out by a logger.(£û«×8çÁ º1
+L	java:S106"+Replace this use of System.out by a logger.(¾‰øüÿÿÿÿ8çÁ º1
+L	java:S106"+Replace this use of System.out by a logger.(šˆ§øÿÿÿÿ8çÁ º1
+G	java:S106"+Replace this use of System.out by a logger.(Ï°ÅŠ8»˜£º1
+G	java:S106"+Replace this use of System.out by a logger.(‘Ïñê8»˜£º1
+L	java:S106!"+Replace this use of System.out by a logger.(øºÑûúÿÿÿÿ8»˜£º1
+J	java:S108#")Either remove or fill this block of code.(˜ïˆÿÿÿÿÿ8ÜŒæ¤º1
+L	java:S106'"+Replace this use of System.err by a logger.(ƒ¯Œ“üÿÿÿÿ8ƒçÁ º1
+G	java:S106*"+Replace this use of System.err by a logger.(«‘Ø8„çÁ º1
