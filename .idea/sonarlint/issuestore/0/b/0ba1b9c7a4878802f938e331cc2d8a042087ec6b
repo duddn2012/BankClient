@@ -3,6 +3,6 @@
 java:S1854"@Remove this useless assignment to local variable "socketClient".(šÏƒÅ8ÖŒ™Õº1
 ‰
 java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø8ØŒ™Õº1
-L	java:S106	"+Replace this use of System.err by a logger.(¤¦•Òýÿÿÿÿ8ÙŒ™Õº1
+L	java:S106	"+Replace this use of System.err by a logger.(ÄýƒÄøÿÿÿÿ8ÙŒ™Õº1
 N
 java:S1481"1Remove this unused "socketClient" local variable.(šÏƒÅ8ÜŒ™Õº1
