@@ -13,8 +13,9 @@ public class SocketClient {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connectedSocket.getInputStream(), "UTF-8"));
                 BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)) //사용자의 입력
         ) {
-            //InputReaderThread in = new InputReaderThread(connectedSocket);
-            //in.run();
+            InputReaderThread inputReaderThread = new InputReaderThread(connectedSocket);
+            inputReaderThread.start();
+
             System.out.print("아이디를 입력해주세요.\n아이디:");
             out.write("200"+stdIn.readLine()+"\n");
             out.flush();
@@ -31,10 +32,8 @@ public class SocketClient {
             out.write("301"+stdIn.readLine()+"\n");
             out.flush();
 
-            String msg = in.readLine();
-            System.out.println(msg);
-
             while(true){
+                Thread.sleep(100);
                 System.out.print("이용할 서비스의 번호를 입력해주세요.\n1. 입금 2. 출금 3. 계좌이체\n");
                 String flag = stdIn.readLine();
                 String credit;
@@ -44,21 +43,23 @@ public class SocketClient {
                         credit = stdIn.readLine();
                         out.write("302" + credit + "\n");
                         out.flush();
-                        System.out.println(in.readLine());
                         break;
                     case "2":
                         System.out.print("출금할 금액을 입력해주세요.\n금액:");
                         credit = stdIn.readLine();
                         out.write("303" + credit + "\n");
                         out.flush();
-                        System.out.println(in.readLine());
                         break;
                     case "3":
                         System.out.print("계좌이체 할 대상과 금액을 입력해주세요.\n대상 & 금액:");
                         credit = stdIn.readLine();
                         out.write("304" + credit + "\n");
                         out.flush();
-                        System.out.println(in.readLine());
+                        break;
+                    default:
+                        out.write("100\n");
+                        out.flush();
+                        System.exit(1);
                         break;
                 }
             }
@@ -68,6 +69,8 @@ public class SocketClient {
         } catch (IOException e) {
             System.err.println("Couldn't get I/O for the connection to " + hostName);
             System.exit(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

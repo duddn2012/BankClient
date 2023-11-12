@@ -18,7 +18,10 @@ public class InputReaderThread extends Thread{
         try(
                 BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         ) {
-                System.out.println(in.readLine());
+            while(true){
+                String message = in.readLine();
+                System.out.println(message);
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
