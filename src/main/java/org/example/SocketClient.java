@@ -13,8 +13,21 @@ public class SocketClient {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connectedSocket.getInputStream(), "UTF-8"));
                 BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in)) //사용자의 입력
         ) {
-            InputReaderThread inputReaderThread = new InputReaderThread(connectedSocket);
-            inputReaderThread.start();
+
+            // Shutdown Hook 등록
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+                System.out.println("프로그램 종료 중...");
+                try {
+                    // 프로그램 종료 시 작업을 수행
+                    out.write("100\n");
+                    out.flush();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }));
+
+            ServerMessageReader serverMessageReader = new ServerMessageReader(connectedSocket);
+            serverMessageReader.start();
 
             System.out.print("아이디를 입력해주세요.\n아이디:");
             out.write("200"+stdIn.readLine()+"\n");
@@ -63,6 +76,7 @@ public class SocketClient {
                         break;
                 }
             }
+
         } catch (UnknownHostException e) {
             System.err.println("Don't know about host" + hostName);
             System.exit(1);

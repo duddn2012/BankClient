@@ -13,6 +13,6 @@ public class Main {
         String hostName = args[0];  //IP
         int portNumber = Integer.parseInt(args[1]); //Port Number
 
-        SocketClient socketClient = new SocketClient(hostName, portNumber); //클라이언트 소켓 생성
+        new SocketClient(hostName, portNumber); //클라이언트 소켓 생성
     }
 }

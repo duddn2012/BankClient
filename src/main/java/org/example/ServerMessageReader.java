@@ -5,11 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-public class InputReaderThread extends Thread{
+public class ServerMessageReader extends Thread{
 
     Socket clientSocket;
 
-    public InputReaderThread(Socket clientSocket){
+    public ServerMessageReader(Socket clientSocket){
         this.clientSocket = clientSocket;
     }
 
